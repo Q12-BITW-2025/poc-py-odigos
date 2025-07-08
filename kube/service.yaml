@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: poc-py-odigos-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: poc-py-odigos
+  ports:
+  - port: 80        # external port
+    targetPort: 8080  # container port

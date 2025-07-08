@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poc-py-odigos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poc-py-odigos
+  template:
+    metadata:
+      labels:
+        app: poc-py-odigos
+    spec:
+      containers:
+      - name: poc-py-odigos
+        image: 512979937293.dkr.ecr.us-east-1.amazonaws.com/poc-py-odigos:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+          limits:
+            cpu: "1"
+            memory: "512Mi"
